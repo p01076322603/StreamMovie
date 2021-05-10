@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.streammovie.mybatis.MemberMapper.xml">
+	
+	<select id="idDupeCheck" resultType="int">
+		SELECT COUNT(*)
+		FROM member
+		WHERE id = #{id}
+	</select>
+	
+	<insert id="registerMember" parameterType="com.streammovie.dto.MemberDTO">
+		INSERT INTO member(id, pwd, nickname, email, regdate)
+		VALUES(#{id}, #{pwd}, #{nickname}, #{email}, SYSDATE)
+	</insert>
+	
+	<select id="selectMember" resultType="com.streammovie.dto.MemberDTO">
+		SELECT *
+		FROM member
+		WHERE id = #{id}
+	</select>
+
+	<update id="updateLoginDate">
+		UPDATE member
+		SET logdate = SYSDATE
+		WHERE id = #{id}
+	</update>
+
+	<update id="updatePassword" parameterType="HashMap">
+		UPDATE member
+		SET pwd = #{newPassword}
+		WHERE id = #{id}
+	</update>
+
+	<update id="leaveMember">
+		UPDATE member
+		SET useyn = 'n'
+		WHERE id = #{id}
+	</update>
+	
+	<update id="modifyMember" parameterType="com.streammovie.dto.MemberDTO">
+		UPDATE member
+		SET nickname = #{nickname}, email = #{email}, profimg = #{profimg},	mailing = #{mailing}, 
+			signature = #{signature}, address = #{address}, phone = #{phone}
+		WHERE id = #{id}
+	</update>
+
+</mapper>

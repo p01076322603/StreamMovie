@@ -1,0 +1,145 @@
+#nav_container {
+  padding-right: 20px;
+}
+
+a:link {
+  color: rgb(80, 50, 255);
+}
+
+a:visited {
+  color:rgb(128, 30, 128);
+}
+
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 25px 0;
+}
+
+.search_title {
+  font-size: 21px;
+  font-weight: 300;
+  margin: 5px 0;
+}
+
+.search_box {
+  border: 1px solid #bbb;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  width: 260px;
+  margin: 20px 0;
+  padding: 7px;
+}
+
+.search_button {
+  position: relative;
+  top: 1px;
+  height: 31px;
+  width: 57px;
+  border: 1px solid #bbb;
+  border-radius: 0 5px 5px 0;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.search_tabs {
+  height: 39px;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.search_tabs li:first-child {
+  border-left: 1px solid #ccc;
+}
+
+.search_tabs li {
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  width: 62px;
+  border: 1px solid #ccc;
+  border-left: none;
+  background-color: rgb(246, 246, 246);
+  padding: 10px;
+  float: left;
+}
+
+.search_div_title {
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.search_board_title p {
+  margin: 3px 0;
+}
+
+.search_comment_title p {
+  margin: 20px 0 3px 0;
+  color: black;
+  display:-webkit-box; 
+  word-wrap:break-word;
+  -webkit-box-orient:vertical; 
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  -webkit-line-clamp:2; 
+  line-height:18px; 
+  max-height:36px; 
+  font-size: 16px;
+}
+
+.search_comment_title p:hover {
+  text-decoration: underline;
+}
+
+.search_author {
+  font-size: 12px;
+  padding-right: 3px;
+}
+
+.search_author::after {
+  position: relative;
+  bottom: 1px;
+  color: #aaa;
+  content: ' | ';
+}
+
+.search_board_content p {
+  display:-webkit-box; 
+  word-wrap:break-word;
+  -webkit-box-orient:vertical; 
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  text-decoration:none;
+  -webkit-line-clamp:3; 
+  line-height:16px; 
+  height:48px; 
+  font-size: 14px;
+}
+
+.search_results li:not(:first-child, :last-child) {
+  float: left;
+}
+
+@media (max-width: 600px) {
+
+  #nav_container {
+    padding-right: 0;
+  }
+
+  .search_tabs li {
+    margin-top: 2px;
+    font-size: 12px;
+    width: 53px;
+  }
+
+  .search_box {
+    width: 225px;
+  }
+
+  .search_author_view {
+    display: none;
+  }
+
+}

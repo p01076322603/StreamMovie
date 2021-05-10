@@ -1,0 +1,17 @@
+-- 서버 web.xml default servlet 매핑 (395line)
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.ico</url-pattern>
+        <url-pattern>*.swf</url-pattern>
+    </servlet-mapping>
+
+-- 서버 server.xml host 태그 내 위치
+					  !! 해당 경로로 변경
+    <Context docBase="C:\Users\504\git\StreamMovie\StreamMovie\WebContent\resources\image\board" path="/boardImagePath" reloadable="true"/>
+	<Context docBase="C:\Users\504\git\StreamMovie\StreamMovie\WebContent\resources\image\member" path="/memberImagePath" reloadable="true"/>

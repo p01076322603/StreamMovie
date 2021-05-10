@@ -1,0 +1,175 @@
+.member_menu {
+  display: flex;
+  background-color: rgb(247, 247, 247);
+  border-radius: 25px 25px 0 0;
+  margin-right: 25px;
+  justify-content: space-around;
+}
+
+.member_menu > span {
+  line-height: 50px;
+}
+
+.member_menu a {
+  color: #777;
+}
+
+
+.member_current_page a {
+  color: black;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.member_info {
+  border-collapse: collapse;
+  margin-right: 25px;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.member_info:first-of-type {
+  margin-bottom: 50px;
+}
+
+.member_info tr {
+  display: flex;
+  text-align: left;
+}
+
+.member_info th, 
+.member_info td {
+  background-color: white;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.member_info th {
+  position: relative;
+  left: -1px;
+  padding: 15px;
+  min-width: 150px;
+  width: 150px;
+  font-size: 15px;
+}
+
+.member_info td {
+  font-size: 14px;
+  padding: 15px;
+  margin-right: 24px;
+  flex-grow: 1;
+}
+
+.member_info tr:last-child th {
+  border-radius: 0 0 0 25px;
+}
+
+.member_info tr:last-child td {
+  border-radius: 0 0 25px 0;
+}
+
+.info_signature * {
+	margin: 0;
+	padding: 0;
+}
+
+@media (max-width: 600px) {
+
+  .member_tabs {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 0;
+    margin: 15px 0;
+  }
+
+  .member_tabs > div {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  .member_tabs > div:first-of-type {
+    border-radius: 10px 10px 0 0;
+    border-top: 1px solid #ccc;
+    border-bottom: none;
+  }
+  .member_tabs div:nth-of-type(3) {
+    background-color: rgb(247, 247, 247);
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .member_select {
+    border: 1px solid #ccc;
+    display: block;
+  }
+  
+  .member_tabs .member_profile {
+    position: static;
+  }
+
+  .member_tabs .member_points {
+    position: static;
+    text-align: left;
+  }
+
+  .member_tabs .member_modify {
+    position: static;
+    text-align: center;
+  }
+
+  .member_profile {
+    padding: 15px;
+  }
+
+  .member_points {
+    padding: 0 0 10px 25px;
+  }
+
+  .member_points p {
+    margin: 0;
+    display: inline;
+  }
+
+  .member_modify > p {
+    padding: 0 12px;
+    line-height: 40px;
+    display: inline;
+  }
+
+  .member_menu {
+    display: none;
+  }
+  
+  .member_info {
+    margin: 0;
+  }
+
+  .member_info td,
+  .member_info th {
+    border: 1px solid #ccc;
+  }
+
+  .member_info th {
+    padding: 7px;
+    min-width: 100px;
+    width: 100px;
+    font-size: 14px;
+    background-color: rgb(247, 247, 247);
+  }
+  
+  .member_info td {
+    font-size: 13px;
+    width: auto;
+    padding: 7px;
+    margin-right: 0;
+  }
+
+  .member_info tr:last-child th,
+  .member_info tr:last-child td {
+    border-radius: 0;
+  }
+
+  .member_info:first-of-type {
+    margin-bottom: 20px;
+  }
+
+}

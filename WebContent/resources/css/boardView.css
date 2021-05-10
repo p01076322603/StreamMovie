@@ -1,0 +1,116 @@
+.boardView_container {
+	position: relative;
+	min-height: 500px;
+	background-color: #fff;
+	border-radius: 25px;
+	margin: 15px 15px 15px 0;
+	padding-bottom: 95px;
+}
+
+.boardView_header p {
+  padding: 9px 0 6px 18px;
+  font-size: 18px;
+  margin: 0 0 25px 0;
+}
+
+.boardView_title p {
+	margin: 0;
+	padding: 20px;
+}
+
+.boardView_info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 40px;
+	background-color: rgb(245, 245, 245);
+}
+
+.info_regdate {
+	color: #555;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+.info_readcount {
+	color: #555;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+.boardView_info div {
+	margin: 0 20px;
+}
+
+.boardView_info span {
+	margin: 3px;
+}
+
+.info_modify,
+.info_delete {
+	cursor: pointer;
+}
+
+.boardView_content {
+	margin: 20px;
+}
+
+.freeboard_header {
+	margin-top: 50px;
+}
+
+.boardView_footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100px;
+	width: auto;
+	background: linear-gradient(to bottom, rgb(245, 245, 245) 0%, rgb(245, 245, 245) 40%, #000000 40%, white 40%, white 100%);
+	border-radius: 0 0 25px 25px;
+}
+
+.write_reply {
+	line-height: 40px;
+	float: right;
+	margin: 0 20px;
+	cursor: pointer;
+}
+
+.boardList {
+	line-height: 40px;
+	float: left;
+	margin: 0 20px;
+	cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  
+  .boardView_header p {
+    margin: 0 0 5px 0;
+ }
+  
+  .boardView_title p {
+    padding: 7px;
+  }
+  
+  .boardView_info > div {
+  	margin: 10px;
+  }
+  
+  #container,
+  .boardView_container {
+  	margin: 0;
+  	border: 0;
+  }
+	
+  .boardView_title {
+    padding: 5px 3px;
+  }
+  
+  
+  .boardView_title {
+    margin-left: 3px;
+  }
+  
+}

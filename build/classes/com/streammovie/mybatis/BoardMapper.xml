@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.streammovie.mybatis.BoardMapper.xml">
+
+	<insert id="insertBoard" parameterType="com.streammovie.dto.BoardDTO">
+		<selectKey keyProperty="articleno,boardseq" resultType="com.streammovie.dto.BoardDTO" order="BEFORE">
+			SELECT article_seq.NEXTVAL as articleno 
+				<if test="boardno == 1">
+					, board1_seq.NEXTVAL as boardseq 
+			    </if>
+				<if test="boardno == 2">
+					, board2_seq.NEXTVAL as boardseq 
+			    </if>
+				<if test="boardno == 3">
+					, board3_seq.NEXTVAL as boardseq 
+			    </if>
+				<if test="boardno == 4">
+					, board4_seq.NEXTVAL as boardseq 
+			    </if>
+			FROM DUAL
+		</selectKey>
+		INSERT INTO board(boardno, boardseq, articleno, subject, content, regdate, ref, restep, relevel, id) 
+		VALUES(#{boardno}, #{boardseq}, #{articleno}, #{subject}, #{content}, SYSDATE, #{ref}, #{restep}, #{relevel}, #{id})	
+	</insert>
+
+	<update id="updateContent" parameterType="hashmap">
+		UPDATE board
+		SET content = #{content}, ref = #{ref}
+		WHERE articleno = #{articleno}
+	</update>
+
+	<select id="selectBoardList" resultType="com.streammovie.dto.BoardDTO" parameterType="hashmap">
+		<![CDATA[
+			SELECT *
+			FROM (SELECT ROWNUM RNUM,
+        			     a.*
+      			  FROM (SELECT *
+        			    FROM board
+        				WHERE articleno > 0
+        				]]>
+        					<include refid="search"></include>
+        					<include refid="boardno"></include>
+						<![CDATA[
+            			ORDER BY ref DESC, restep ASC) a)
+			  	  WHERE RNUM BETWEEN #{listStart} AND #{listEnd}
+		]]>
+	</select>
+	
+	<select id="selectAllBoardCount" resultType="int" parameterType="hashmap">
+	    SELECT COUNT(*)
+    	FROM board
+    	WHERE articleno > 0
+		<include refid="search"></include>
+		<include refid="boardno"></include>
+	</select>
+
+	<select id="selectBoard" resultType="com.streammovie.dto.BoardDTO">
+			SELECT *
+			FROM board
+			WHERE articleno = #{articleno}
+	</select>
+	
+	<update id="updateReadcount">
+		UPDATE board
+		SET readcount = readcount + 1
+		WHERE articleno = #{articleno}
+	</update>
+
+	<delete id="deleteArticle">
+		DELETE FROM board
+		WHERE articleno = #{articleno}
+	</delete>
+
+	<update id="updateArticle" parameterType="com.streammovie.dto.BoardDTO">
+		UPDATE board
+		SET subject = #{subject}, content = #{content}
+		WHERE articleno = #{articleno}
+	</update>
+
+	<select id="selectBoardReplyOrder" resultType="int" parameterType="hashmap">
+		<![CDATA[
+			SELECT NVL(MAX(restep), 0)
+			FROM board
+			WHERE ref = #{ref}
+			AND restep > #{restep}
+			AND relevel <= #{relevel}
+		]]>
+	</select>
+	
+	<select id="selectMaxReStep" resultType="int">
+			SELECT NVL(MAX(restep), 0) + 1
+			FROM board
+			WHERE ref = #{ref}
+	</select>
+
+	<select id="selectMaxReStep2" resultType="int" parameterType="hashmap">
+		<![CDATA[
+			SELECT MIN(restep)
+			FROM board
+			WHERE ref = #{ref}
+			AND restep > #{restep}
+			AND relevel >= #{relevel}
+		]]>
+	</select>
+	
+	<update id="updateReplyReStep" parameterType="hashmap">
+		<![CDATA[
+			UPDATE board
+			SET restep = restep + 1
+			WHERE ref = #{ref}
+			AND restep > #{restep}
+		]]>	
+	</update>
+	
+	<update id="updateReply" parameterType="hashmap">
+		UPDATE board
+		SET content = #{content}, ref = #{ref}, restep = #{restep}, relevel = #{relevel}
+		WHERE articleno = #{articleno}
+	</update>
+	
+	<sql id="search">
+		<if test="keyword != null">
+			AND subject LIKE '%'||#{keyword}||'%'
+	  	</if>
+	</sql>
+	<sql id="boardno">
+		<if test="boardno != null">
+			AND boardno = #{boardno}
+	  	</if>
+	</sql>
+	        		
+</mapper>

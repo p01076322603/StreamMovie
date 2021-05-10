@@ -1,0 +1,137 @@
+.member_tabs {
+  position: relative;
+  display: flex;
+  padding: 25px 25px;
+  align-items: center;
+}
+
+.member_tabs > div {
+  flex-grow: 1;
+}
+
+.member_tabs .member_profile {
+  position: absolute;
+  font-size: 18px;
+  display: flex;
+}
+
+.member_profile .profile_info {
+  margin: 5px 10px;
+}
+
+.profile_image {
+  border-radius: 50%;
+}
+
+.profile_info .profile_info_level {
+  width: 40px;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  background-color: #555;
+  color: white;
+  border-radius: 8px;
+}
+
+
+.member_tabs .member_points {
+  position: absolute;
+  left: calc(50% - 45px);
+  text-align: center;
+}
+
+.member_points div {
+  font-weight: bolder;
+}
+
+.member_points p {
+  margin: 11px;
+  font-weight: border;
+  color: #666;
+}
+
+.member_tabs .member_modify {
+  position: relative;
+  right: 25px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 22px;
+  order: 1;
+}
+
+.member_modify p {
+  margin: 0;
+}
+
+.member_select {
+  background-color: rgb(247, 247, 247);
+  display: none;
+  width: 100%;
+  padding: 5px;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+
+  .member_tabs {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 0;
+    margin: 15px 0;
+  }
+
+  .member_tabs > div {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  .member_tabs > div:first-of-type {
+    border-radius: 10px 10px 0 0;
+    border-top: 1px solid #ccc;
+    border-bottom: none;
+  }
+  .member_tabs div:nth-of-type(3) {
+    background-color: rgb(247, 247, 247);
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .member_select {
+    border: 1px solid #ccc;
+    display: block;
+  }
+  
+  .member_tabs .member_profile {
+    position: static;
+  }
+
+  .member_tabs .member_points {
+    position: static;
+    text-align: left;
+  }
+
+  .member_tabs .member_modify {
+    position: static;
+    text-align: center;
+  }
+
+  .member_profile {
+    padding: 15px;
+  }
+
+  .member_points {
+    padding: 0 0 10px 25px;
+  }
+
+  .member_points p {
+    margin: 0;
+    display: inline;
+  }
+
+  .member_modify > p {
+    padding: 0 12px;
+    line-height: 40px;
+    display: inline;
+  }
+
+}

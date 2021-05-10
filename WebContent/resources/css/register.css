@@ -1,0 +1,164 @@
+#register_form {
+  background-color: #fff;
+  border-radius: 25px 25px 25px 25px;
+}
+
+.register_title {
+  text-align: center;
+  border-radius: 25px 25px 0 0;
+  background-color: #f7f7f7;
+  padding: 20px 0;
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.agreement {
+  padding-top: 30px;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+.agreement .agreement_title {
+  font-size: 14px;
+  margin: 0px;
+  padding: 6px;
+  letter-spacing: 0.5px;
+  background-color: rgb(245, 245, 245);
+  color: #333;
+  font-weight: 700;
+  border: 1px solid #ddd;
+  border-bottom: none;
+}
+
+.agreement textarea {
+  box-sizing: border-box;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  padding: 0 20px;
+  width: 100%;
+  height: 200px;
+  resize: none;
+  background-color: white;
+}
+
+.agreement textarea:hover {
+  background-color: #ffffeb;
+}
+
+.agreement .agreement_consent {
+  display: inline;
+  text-align: left;
+  padding: 0;
+  font-size: 13px;
+}
+
+input[type=checkbox] {
+  position: relative;
+  top: 2px;
+  transform: scale(1.1);
+}
+
+.register_list {
+  display: flex; 
+  align-items: center;
+  border-top: 1px solid #ccc;
+}
+
+.register_list p {
+  font-size: 14px;
+  padding: 15px 25px;
+  width: 200px;
+}
+
+.register_list .register_inputbox {
+  padding: 15px 25px;
+  flex-grow: 1;
+}
+
+.register_list input {
+  border-radius: 10px;
+  width: 200px;
+  height: 32px;
+	border: 1px solid rgb(200, 200, 200);
+  background-color: rgb(241, 241, 241);
+  transition: 0.3s;
+}
+
+.register_inputbox h5 {
+  line-height: 32px;
+  font-weight: 400;
+  border-top: 1px dashed #eee;
+  margin: 15px 0 0 0;
+}
+
+.register_list input:hover {
+  background-color: rgb(255, 253, 231);
+}
+
+.buttons {
+  height: 76px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+
+.buttons > button { 
+  height: 42px;
+  padding: 0 20px;
+  margin: 16px 3px;
+  border-radius: 10px;
+  border: 1px solid rgb(200, 200, 200);
+  cursor: pointer;
+}
+
+.buttons .reg_submit {
+  background-color: rgb(236,94,94);
+  color: white;
+}
+
+.register_list p.validation {
+  padding: 10px 0 0 0;
+}
+
+.validation {
+  margin: 0;
+  color: tomato;
+  width: 100%;
+}
+
+@media(max-width:850px) {
+
+  .register_list {
+    display: block;
+  }
+
+  .register_list p,
+  .register_list .register_inputbox {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0;
+  }
+
+  .register_list .register_inputbox input {
+    width: 300px;
+    margin-bottom: 10px;
+  }
+
+  .register_list p.validation {
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  @media (max-width:600px) {
+    
+    #container {
+      border: none;
+    }
+    
+    .register_title {
+      border-radius: 0;
+    }
+  }
+}

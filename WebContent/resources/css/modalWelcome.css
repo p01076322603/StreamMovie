@@ -1,0 +1,38 @@
+#welcome {
+  position: fixed;
+  background-color: white;
+  top: 15%;
+  left: calc(50vw - 250px);
+  width: 500px;
+  z-index: 500;
+  background-color: rgb(255, 255, 225);
+  border-radius: 10px;
+  transition: .3s;
+}
+
+#welcome:hover {
+  background-color: rgb(255, 255, 245);
+}
+
+#welcome p {
+  margin: 0;
+  padding: 10px;
+  line-height: 30px;
+}
+
+.emailinfo {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #welcome {
+    width: 320px;
+    left: calc(50vw - 160px);
+    top: 10%;
+    font-size: 13px;
+  }
+
+  #welcome p {
+    line-height: 25px;
+  }
+}
